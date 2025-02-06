@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        h1 {
+            font-size: 28px;
+        }
+        .boton {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        #btnSi {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #btnNo {
+            background-color: #ff4436;
+            color: white;
+        }
+        #gif {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¿Quieres ser mi San Valentín, mi vida? 😊</h1>
+    <img id="gif" src="https://i.pinimg.com/originals/a0/ba/95/a0ba951828efe9613d64db6e5b4f33e7.gif" alt="San Valentín">
+    <br>
+    <button id="btnSi" class="boton" onclick="respuestaSi()">Sí</button>
+    <button id="btnNo" class="boton" onclick="respuestaNo()">No</button>
+
+    <script>
+        let contadorNo = 0;
+        let respuestasNo = [
+            "Di que sí por favor 😀",
+            "Piénsalo de nuevo 🙃",
+            "Yo sé que quieres decir que sí 😃",
+            "Vamos, yo sé que quieres 😁",
+            "Te equivocaste de botón seguro 🥺",
+            "Este no es el botón de sí 😅",
+            "Yo digo que no viste bien y presionaste el equivocado 😇"
+        ];
+        let imagenesNo = [
+            "https://i.pinimg.com/originals/d5/79/aa/d579aa6558775ef99a765fab7b6088e0.gif",
+            "https://i.pinimg.com/originals/49/b4/51/49b451ec654220421c648195b8cf6d85.gif",
+            "https://i.pinimg.com/originals/bf/a4/85/bfa48510c00f8ac6c79b43835d643105.gif",
+            "https://i.pinimg.com/originals/e4/8b/19/e48b194083622deba99454f55cf1a781.gif",
+            "https://i.pinimg.com/originals/6e/42/a0/6e42a05041329f8571063dedb368f21b.gif",
+            "https://i.pinimg.com/originals/e1/c3/88/e1c388133e0f998e25bb17c837b74a14.gif",
+            "https://i.pinimg.com/originals/e3/1c/36/e31c368384957589e3857edf24417414.gif"
+        ];
+
+        function respuestaSi() {
+            document.body.innerHTML = `
+                <h1>¡Sabía que dirías que sí, mi vida! 😉</h1>
+                <img src="https://media.tenor.com/9Ns8M_G13a8AAAAM/peachcat-cuddle.gif" alt="Feliz">
+                <p>Nos vemos el 14 de febrero a las 7pm 🤗</p>
+            `;
+        }
+
+        function respuestaNo() {
+            let btnNo = document.getElementById("btnNo");
+            let btnSi = document.getElementById("btnSi");
+            let gif = document.getElementById("gif");
+
+            btnNo.innerHTML = respuestasNo[contadorNo % respuestasNo.length];
+            gif.src = imagenesNo[contadorNo % imagenesNo.length];
+
+            btnSi.style.fontSize = (20 + contadorNo * 5) + "px"; // Hace más grande el botón de "Sí"
+            contadorNo++;
+        }
+    </script>
+
+</body>
+</html>
